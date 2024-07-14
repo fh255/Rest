@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-     'cloudinary_storage',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-     'rest_framework'
+    'rest_framework',
     'profiles',
 ]
 
@@ -140,3 +140,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-fh255-rest-ckidthezn2w.ws.codeinstitute-ide.net',
+]
