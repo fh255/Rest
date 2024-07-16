@@ -1,14 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
-from posts.models import Post
 
 
-class Comment(models.Model):
+class Follower(models.Model):
     """
-    Comment model, related to User and Post
+    Follower model, related to 'owner' and 'followed'.
+    'owner' is a User that is following a User.
+    'followed' is a User that is followed by 'owner'.
+    We need the related_name attribute so that django can differentiate.
+    between 'owner' and 'followed' who both are User model instances.
+    'unique_together' makes sure a user can't 'double follow' the same user.
     """
-    owner = models.ForeignKey(User, related_name= 'following', on_delete=models.CASCADE)
-    followed = models.ForeignKey(User, related_name= 'followed', on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        User, related_name='following', on_delete=models.CASCADE
+    )
+    followed = models.ForeignKey(
+        User, related_name='followed', on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
