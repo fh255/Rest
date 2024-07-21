@@ -1,10 +1,13 @@
 from pathlib import Path
 import os
-import env 
-import dj_database_url
+# import env 
+# import dj_database_url
+from dotenv import load_dotenv
 
-if os.path.exists('env.py'):
-    import env
+# Load environment variables from .env file
+load_dotenv()
+#if os.path.exists('env.py'):
+    #import env
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
@@ -50,7 +53,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['https://drf-api-ur-b9d40380cd9e.herokuapp.com/']
+ALLOWED_HOSTS = ['https://drf-api-ur-b9d40380cd9e.herokuapp.com']
 
 # Application definition
 
