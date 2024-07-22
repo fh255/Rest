@@ -1,13 +1,13 @@
 from pathlib import Path
 import os
-# import env 
+import env 
 import dj_database_url
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
-#if os.path.exists('env.py'):
-    #import env
+# load_dotenv()
+if os.path.exists('env.py'):
+    import env
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
@@ -50,7 +50,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['https://drf-api-ur-b9d40380cd9e.herokuapp.com']
